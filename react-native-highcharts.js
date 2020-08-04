@@ -87,6 +87,7 @@ class ChartWeb extends Component {
                   scalesPageToFit={true}
                   scrollEnabled={false}
                   automaticallyAdjustContentInsets={true}
+                  originWhiteList={["*"]}
                   {...this.props}
               />
           </View>
