@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TradingPal/react-native-highcharts"
+    "url": "https://github.com/trendlyne/react-native-highcharts"
   },
   "keywords": [
     "react-native",
@@ -23,7 +23,7 @@
   "author": "Infinity0106",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/TradingPal/react-native-highcharts/issues"
+    "url": "https://github.com/trendlyne/react-native-highcharts/issues"
   },
-  "homepage": "https://github.com/TradingPal/react-native-highcharts#readme"
+  "homepage": "https://github.com/trendlyne/react-native-highcharts#readme"
 }
