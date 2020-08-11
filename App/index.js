@@ -4,10 +4,10 @@ import {
     StyleSheet,
     Text,
     View,
-    WebView,
     Image,
     Dimensions
 } from 'react-native';
+import WebView from "react-native-webview";
 
 const win = Dimensions.get('window');
 class ChartWeb extends Component {
@@ -31,14 +31,14 @@ class ChartWeb extends Component {
                     }
                     </style>
                     <head>
-                        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-                        ${this.props.stock ? '<script src="https://code.highcharts.com/stock/highstock.js"></script>'
-                                      : '<script src="https://code.highcharts.com/highcharts.js"></script>'}
-                        ${this.props.more ? '<script src="https://code.highcharts.com/highcharts-more.js"></script>'
+                        <script src="file:///android_asset/highcharts/jquery-2.1.4.min.js"></script>
+                        ${this.props.stock ? '<script src="file:///android_asset/highcharts/highstock.js"></script>'
+                                      : '<script src="file:///android_asset/highcharts/highcharts.js"></script>'}
+                        ${this.props.more ? '<script src="file:///android_asset/highcharts/highcharts-more.js"></script>'
                                       : ''}
-                        ${this.props.guage ? '<script src="https://code.highcharts.com/modules/solid-gauge.js"></script>'
+                        ${this.props.guage ? '<script src="file:///android_asset/highcharts/solid-gauge.js"></script>'
                                       : ''}
-                        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+                        <script src="file:///android_asset/highcharts/exporting.js"></script>
                         <script>
                         $(function () {
                             Highcharts.setOptions(${JSON.stringify(this.props.options)});
@@ -79,7 +79,7 @@ class ChartWeb extends Component {
         return (
           <View style={this.props.style}>
               <WebView
-                  onLayout={this.reRenderWebView}
+                  onLayout={this.reRenderWebView.bind(this)}
                   style={styles.full}
                   source={{ html: concatHTML, baseUrl: 'web/' }}
                   javaScriptEnabled={true}
@@ -87,6 +87,8 @@ class ChartWeb extends Component {
                   scalesPageToFit={true}
                   scrollEnabled={false}
                   automaticallyAdjustContentInsets={true}
+                  originWhiteList={["*"]}
+                  allowFileAccess={true}
                   {...this.props}
               />
           </View>
