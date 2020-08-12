@@ -31,8 +31,6 @@ class ChartWeb extends Component {
                     }
                     </style>
                     <head>
-                        {/*<script src="file:///android_asset/highcharts/jquery-2.1.4.min.js"></script>*/}
-                        <script src=${this.props.jquerysrc}</script>
                         <script src="file:///android_asset/highcharts/jquery-2.1.4.min.js"></script>
                         ${this.props.stock ? '<script src="file:///android_asset/highcharts/highstock.js"></script>'
                                       : '<script src="file:///android_asset/highcharts/highcharts.js"></script>'}
@@ -83,7 +81,7 @@ class ChartWeb extends Component {
               <WebView
                   onLayout={this.reRenderWebView.bind(this)}
                   style={styles.full}
-                  source={{ html: concatHTML, baseUrl: 'web/' }}
+                  source={{ html: concatHTML, baseUrl: 'assets/' }}
                   javaScriptEnabled={true}
                   domStorageEnabled={true}
                   scalesPageToFit={true}
